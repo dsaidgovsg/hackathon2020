@@ -16,6 +16,6 @@ export default function Menubar(props) {
 				<Nav.Link className={props.view==='demo1'?'active':''} target="demo1" onClick={changeView}>Demo 1</Nav.Link>
 				<Nav.Link className={props.view==='demo2'?'active':''} target="demo2" onClick={changeView}>Demo 2</Nav.Link>
 			</Nav>
-	</Navbar.Collapse>*/}
+		</Navbar.Collapse>*/}
 	</Navbar>)
 }

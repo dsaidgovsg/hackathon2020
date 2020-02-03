@@ -3,7 +3,7 @@ import React from 'react';
 export default class WelcomeView extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {on:true};
+		this.state = {on:false};
 	}
 
 	flash() {

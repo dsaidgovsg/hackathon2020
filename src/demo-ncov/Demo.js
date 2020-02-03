@@ -28,18 +28,10 @@ function Stat({modifyTime, confirmedCount, suspectedCount, deadCount, curedCount
         </span>
       </h2>
       <div className="row">
-        <Tag number={confirmedCount}>
-          确诊
-        </Tag>
-        <Tag number={suspectedCount || '-'}>
-          疑似
-        </Tag>
-        <Tag number={deadCount}>
-          死亡
-        </Tag>
-        <Tag number={curedCount}>
-          治愈
-        </Tag>
+        <Tag number={confirmedCount}>确诊</Tag>
+        <Tag number={suspectedCount || '-'}>疑似</Tag>
+        <Tag number={deadCount}>死亡</Tag>
+        <Tag number={curedCount}>治愈</Tag>
       </div>
     </div>
   )
@@ -89,6 +81,7 @@ function Header ({ province }) {
 function Demo () {
   const [province, _setProvince] = useState(null)
 
+  // similar to componentDidMount and componentDidUpdate
   useEffect(() => {
     if (province) {
       window.document.title = `肺炎疫情实时地图 | ${province.name}`
