@@ -13,26 +13,12 @@ import Demo from './demo-ncov/Demo';
 class AppView extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {view:'welcome', prompt: {show: false}, running:false};
-		this.openPrompt = this.openPrompt.bind(this);
-		this.closePrompt = this.closePrompt.bind(this);
+		this.state = {view:'welcome'};
 		this.changeView = this.changeView.bind(this);
 	}
 
 	changeView(view) {
 		this.setState({view: view})
-	}
-
-	openPrompt(message, options) {
-		if (!this.state.prompt.show)
-		    this.setState({prompt: {show:true, message:message, ...options}})
-		else {
-		    // to consider: should we queue the message?
-		    console.log("Extra message:", message, options);
-		}
-	}
-	closePrompt() {
-		this.setState({prompt:{show: false}})
 	}
 
 	render() {
@@ -53,9 +39,9 @@ class AppView extends React.Component {
                     <Col className={"main-content bd-content h-100 px-0 col-12"} role="main">
 					{((view) => {
 						switch (view) {
-							case 'welcome': return <WelcomeView changeView={this.changeView}></WelcomeView>;
-							case 'demo': return <Demo></Demo>;
-							default: return null;
+						case 'welcome': return <WelcomeView changeView={this.changeView}></WelcomeView>;
+						case 'demo': return <Demo></Demo>;
+						default: return null;
 						}
 					})(this.state.view)}
                     </Col>
