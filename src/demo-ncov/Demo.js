@@ -1,6 +1,6 @@
 // ref: https://github.com/shfshanyue/2019-ncov
 
-import React, { useState, Suspense, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import keyBy from 'lodash.keyby'
 import dayjs from 'dayjs'
 import 'dayjs/locale/zh-cn'
@@ -18,7 +18,7 @@ dayjs.extend(relativeTime)
 const provincesByName = keyBy(provinces, 'name')
 const provincesByPinyin = keyBy(provinces, 'pinyin')
 
-function Stat ({ modifyTime, confirmedCount, suspectedCount, deadCount, curedCount, name }) {
+function Stat({modifyTime, confirmedCount, suspectedCount, deadCount, curedCount, name}) {
   return (
     <div className="card">
       <h2>
@@ -45,7 +45,7 @@ function Stat ({ modifyTime, confirmedCount, suspectedCount, deadCount, curedCou
   )
 }
 
-function Area ({ area, onChange }) {
+function Area({area, onChange}) {
   const renderArea = () => {
     return area.map(x => (
       <div className="province" key={x.name || x.cityName} onClick={() => {
@@ -92,18 +92,6 @@ function Header ({ province }) {
 
 function Demo () {
   const [province, _setProvince] = useState(null)
-  const setProvinceByUrl = () => {
-    const p = window.location.pathname.slice(1)
-    _setProvince(p ? provincesByPinyin[p] : null)
-  }
-
-  useEffect(() => {
-    setProvinceByUrl()
-    window.addEventListener('popstate', setProvinceByUrl)
-    return () => {
-      window.removeEventListener('popstate', setProvinceByUrl)
-    }
-  }, [])
 
   useEffect(() => {
     if (province) {
@@ -111,10 +99,7 @@ function Demo () {
     }
   }, [province])
 
-  const setProvince = (p) => {
-    _setProvince(p)
-    window.history.pushState(null, null, p ? p.pinyin : '/')
-  }
+  const setProvince = (p) => { _setProvince(p) }
 
   const data = !province ? provinces.map(p => ({
     name: p.provinceShortName,
@@ -133,18 +118,12 @@ function Demo () {
       <Stat { ...overall } name={province && province.name} modifyTime={all.modifyTime} />
       <div className="card">
         <h2>疫情地图 { province ? `· ${province.name}` : false }
-        {
-          province ? <small
-            onClick={() => setProvince(null)}
-          >返回全国</small> : null
-        }
+        {province ? <small onClick={() => setProvince(null)}>返回全国</small> : null}
         </h2>
         <div>
           <Map province={province} data={data} onClick={name => {
-            const p = provincesByName[name]
-            if (p) {
-              setProvince(p)
-            }
+            const p = provincesByName[name];
+            if (p) { setProvince(p) }
           }} />
           {
             province ? false :
