@@ -1,0 +1,153 @@
+html, body, #root { height:100%; }
+iframe { border:0px; }
+video { vertical-align: middle; }
+
+.bd-navbar{min-height:4rem;background-color:#563d7c;box-shadow:0 .5rem 1rem rgba(0,0,0,.05),inset 0 -1px 0 rgba(0,0,0,.1)}
+
+.navbar img { width:24px; }
+.navbar-brand { border:1px solid #f5f5f5; border-radius:3px; }
+
+#menubar .nav-link { padding:1.2em 2em; }
+.nav-link.active { border-bottom:2px #fff solid; }
+
+.container-fluid .main-row { padding:0px 10em; background-color:#f3f3f3; }
+@media (max-width:1200px) { 
+    .container-fluid .main-row { padding:0px; } 
+}
+.container-fluid .main-row.view-welcome, .container-fluid .main-row.view-annotate { padding:0px 0em; }
+
+.container-fluid .main-content { background-color:white; }
+
+#spinner { display:none; margin-left:1em; width:1.5em; height:1.5em; vertical-align:middle; }
+
+.bd-sidebar { background-color:#eee; align-self:stretch; height:auto; }
+
+textarea.console {
+    width:100%; min-height:200px; height:100%; margin-top:0.3em; font-family:consolas, 'courier new'; font-size:14px;
+    background-color:#f6f6f6 !important;
+}
+
+.form-row { margin-top:1em; }
+.form-row { margin-right: -1em; margin-left: -1em; }
+.form-row > .col { padding-right:1em; padding-left:1em; }
+.input-group-text label { margin-bottom:0px; }
+
+#welcome ul { margin:0px; padding:.5em 0em; }
+#welcome li { list-style-type:none; padding:.3em .5em; cursor:pointer; }
+#welcome li:hover { background-color:#e9e9ee; }
+#welcome .link { color:maroon; cursor:pointer; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; }
+.project img { display:none; float:right; }
+.project:hover img { display:inline-block; }
+
+#project-setting .card { float:left; width:12rem; height:13rem; margin-right:3em; overflow:hidden; margin-bottom:2em; }
+#project-setting .card.active { border:2px orange solid; }
+#project-setting .card-img-top { height:8rem; cursor:pointer; }
+#project-setting .card-body { padding:1rem; cursor:pointer; }
+.card-body:hover, .card.active .card-body { background-color:#eef !important; }
+#project-setting .card-title { font-size:1.1em; }
+
+.field-value { margin:.5em 0px; font-weight:bold; }
+
+#project-home .card { float:left; width:12rem; height:11rem; margin-right:3em; overflow:hidden; margin-bottom:2em; cursor:pointer; }
+
+#trainingForm .form-group { margin-bottom:0px; }
+
+.class-input {
+    width: 100%;
+    min-height: 20px;
+    margin: 3px;
+    background-color: #fff;
+    color: black;
+    border: solid 1px #E53935;
+    padding: 0 3px;
+}
+
+.sse-sliders { min-width:190px; }
+.sse-sliders h4 { font-size:1.2em; background-color:#555; text-align:center; font-weight:400; }
+.sse-sliders select { border-radius: 2px; }
+
+.sse-class-chooser { min-width:225px; }
+
+.thumbnail { 
+    display:inline-block; width:100%; position:relative; margin:2px 0px; padding:4px; 
+    background-color:white; border-radius:0.25rem; 
+}
+.thumbnail.active { background-color:orange; }
+.thumbnail .placeholder { position:absolute; top:4px; right:4px; bottom:4px; left:4px; background-color:#ccc; }
+.thumbnail .btn { height:1.5em; line-height:0px; position:absolute; right:.8em; top:1em; }
+.thumbnail .btn svg { font-size:1em; }
+.thumbnail .icon { position:absolute; cursor:pointer; left:50%; top:50%; transform: translate(-50%,-50%); }
+.img-thumbnail { position:relative; cursor:pointer; min-height:80px; padding:0px; border:0px; border-radius:0px; }
+img.lazyload:not([src]) { visibility: hidden; }
+.thumbnail video { position:relative; cursor:pointer; min-height:80px; }
+/* fade image in after load */
+.lazyload, .lazyloading { opacity:0; }
+.lazyloaded { opacity: 1; transition: opacity 500ms; }
+
+.image-folder { font-size:1.2em; }
+
+#canvasContainer video { width:100%; height:100%; object-fit:contain; display:block; }
+
+.video-control {
+    position:absolute; width:100%; height:50px; bottom:0px; background-color:rgba(0,0,0,0.5); /* opacity:0.7; */
+    opacity:1;
+}
+.video-progress { margin:0px; }
+.video-progress-bar {
+    position:absolute; width:100%; height:8px; background-color:rgba(255,255,255,0.7); top:50%; transform: translateY(-50%);
+}
+.video-progress-tip {
+    position:absolute; width:0px; height:0px; border-radius:4px; 
+    top:50%; transform: translateY(-50%); margin-left:-7px;
+}
+.video-progress-played {
+    position:absolute; width:100px; height:8px; background-color:red;
+}
+.video-progress-bar:hover .video-progress-tip {
+    width:14px; height:14px; border-radius:7px; background-color:red; 
+}
+.video-duration { color:white; padding:10px; }
+.video-duration-ms { font-size:0.7em; position:relative; top:2px; }
+.video-progress .label {
+    margin-left:-8px; margin-top:-4px; font-size:16px; color:white; position:absolute; transform: rotate(90deg) scaleY(0.7);
+    filter: drop-shadow(1px -1px 4px #666);
+}
+.video-progress .label:hover {
+    color:orange; transform: rotate(90deg) scaleY(1);
+}
+.video-progress .label.active {
+    color:orange;
+}
+
+.tab-content { flex-grow:1; overflow:auto; }
+.predict-view .tab-section {
+    background-color:#777; padding:0.2em;
+}
+
+.predict-view .thumbnail {
+    width:auto; width:200px; height:150px; margin:0.2em; padding:3px; border-radius:10px; background-color:#eee;
+}
+.predict-view .thumbnail:hover {
+    background-color:orange;
+}
+.predict-view .thumbnail .img-thumbnail, .predict-view .thumbnail video { 
+    width:100%; height:100%; object-fit:cover; border-radius:10px;
+}
+.predict-view .thumbnail .img-thumbnail:hover {
+    background-color:orange;
+}
+
+.modal-content { max-height: 600px; }
+.modal-body p { white-space: pre-line; }
+
+.popup-carousel { position: absolute; }
+.carousel { background-color:#777; }
+.carousel-item { text-align:center; }
+.icon-close { position:absolute; cursor:pointer; color:rgba(255,255,255,0.7); top:2em; right:2em; z-index:2; }
+.icon-close:hover { color:white; }
+.carousel-item button { color:white;  position:absolute; left:50%; top:50%; transform: translate(-50%,-50%); }
+.carousel-item .large-icon, .carousel-item .large-icon svg { width:3em; height:3em; }
+.carousel-item img, .carousel-item video { width:100%; object-fit: contain; max-height:560px; }
+.carousel-caption { top:10px; bottom:auto; }
+.carousel-control-next, .carousel-control-prev { width:10%; height:100px; top:50%; margin-top:-50px; }
+.carousel-indicators { display:none; }
