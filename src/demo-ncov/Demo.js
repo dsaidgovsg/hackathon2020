@@ -16,7 +16,7 @@ import './Demo.css'
 dayjs.extend(relativeTime)
 
 const provincesByName = keyBy(provinces, 'name')
-const provincesByPinyin = keyBy(provinces, 'pinyin')
+// const provincesByPinyin = keyBy(provinces, 'pinyin')
 
 function Stat({modifyTime, confirmedCount, suspectedCount, deadCount, curedCount, name}) {
   return (
@@ -64,8 +64,7 @@ function Area({area, onChange}) {
     ))
   }
 
-  return (
-    <>
+  return <>
       <div className="province header">
         <div className="area">地区</div>
         <div className="confirmed">确诊</div>
@@ -74,7 +73,6 @@ function Area({area, onChange}) {
       </div>
       { renderArea() }
     </>
-  )
 }
 
 function Header ({ province }) {
@@ -101,13 +99,8 @@ function Demo () {
 
   const setProvince = (p) => { _setProvince(p) }
 
-  const data = !province ? provinces.map(p => ({
-    name: p.provinceShortName,
-    value: p.confirmedCount
-  })) : provincesByName[province.name].cities.map(city => ({
-    name: city.fullCityName,
-    value: city.confirmedCount
-  }))
+  const data = !province ? provinces.map(p => ({name: p.provinceShortName, value: p.confirmedCount})) : 
+  	provincesByName[province.name].cities.map(city => ({name: city.fullCityName, value: city.confirmedCount}))
 
   const area = province ? provincesByName[province.name].cities : provinces
   const overall = province ? province : all
@@ -118,7 +111,7 @@ function Demo () {
       <Stat { ...overall } name={province && province.name} modifyTime={all.modifyTime} />
       <div className="card">
         <h2>疫情地图 { province ? `· ${province.name}` : false }
-        {province ? <small onClick={() => setProvince(null)}>返回全国</small> : null}
+        {province ? <small onClick={() => setProvince(null)} style={{cursor:'pointer'}}>返回全国</small> : null}
         </h2>
         <div>
           <Map province={province} data={data} onClick={name => {
