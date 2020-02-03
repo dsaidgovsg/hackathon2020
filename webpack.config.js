@@ -9,7 +9,7 @@ const htmlPlugin = new HtmlWebPackPlugin({
 });
 
 const clientConfig = {
-	entry: ['webpack/hot/dev-server', './src/index.js'],
+	entry: ['react-hot-loader/patch', 'webpack/hot/dev-server', './src/index.js'],
 	target: 'web',
 	output: {
 		path: path.resolve(__dirname, 'build'),

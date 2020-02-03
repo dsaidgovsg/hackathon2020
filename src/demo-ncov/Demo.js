@@ -50,9 +50,7 @@ function Area({area, onChange}) {
     return area.map(x => (
       <div className="province" key={x.name || x.cityName} onClick={() => {
         // 表示在省一级
-        if (x.name) {
-          onChange(x)
-        }
+        if (x.name) { onChange(x) } 
       }}>
         <div className={`area ${x.name ? 'active' : ''}`}>
           { x.name || x.cityName }

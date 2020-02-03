@@ -1,5 +1,6 @@
+import { hot } from 'react-hot-loader';
 import React from "react";
-import { Row, Col } from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
 
 import "./app.css";
 
@@ -9,7 +10,7 @@ import Menubar from './Menubar';
 import Prompt from './Prompt';
 import Demo from './demo-ncov/Demo';
 
-export default class AppView extends React.Component {
+class AppView extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {view:'welcome', prompt: {show: false}, running:false};
@@ -68,3 +69,5 @@ export default class AppView extends React.Component {
 			</Container>)
 	}
 }
+
+export default hot(module)(AppView);
