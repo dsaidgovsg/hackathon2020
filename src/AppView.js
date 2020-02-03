@@ -34,11 +34,6 @@ class AppView extends React.Component {
 	closePrompt() {
 		this.setState({prompt:{show: false}})
 	}
-	
-	componentDidMount() {
-	}
-	componentWillUnmount() {
-	}
 
 	render() {
 		return (
@@ -70,4 +65,5 @@ class AppView extends React.Component {
 	}
 }
 
+// export default AppView;
 export default hot(module)(AppView);

@@ -3,13 +3,13 @@ const path = require('path');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 const htmlPlugin = new HtmlWebPackPlugin({
- title: "Hackathon 2020",
- template: "./src/index.html",
- filename: "./index.html"
+	title: "Hackathon 2020",
+	template: "./src/index.html",
+	filename: "./index.html"
 });
 
 const clientConfig = {
-	entry: ['react-hot-loader/patch', 'webpack/hot/dev-server', './src/index.js'],
+	entry: ['./src/index.js'],
 	target: 'web',
 	output: {
 		path: path.resolve(__dirname, 'build'),
@@ -25,16 +25,19 @@ const clientConfig = {
 				  path.resolve(__dirname, 'src'),
 				],				
 				exclude: [
-					/node_modules/,
-					/ai_engine/,
-					/docs/
+					/node_modules/
 				],
 				use: {
 					loader: 'babel-loader',
 					options: {
+						// ignore any .babelrc files, use what is defined below instead
+						babelrc: false,
+						// Babel preset for ES6+ and React
 						presets: ["@babel/preset-env","@babel/preset-react"],
-						plugins: ['@babel/plugin-proposal-class-properties']
-					}
+						plugins: ['@babel/plugin-proposal-class-properties'],
+						// use node_modules/.cache/babel-loader to cache the results of the loader
+						cacheDirectory: true,
+					},
 				}
 			}, 
 			{
@@ -45,7 +48,6 @@ const clientConfig = {
 	},
 	plugins:[
 		htmlPlugin,
-		new webpack.HotModuleReplacementPlugin(),
 	],
 	resolve: {
 		extensions: ['.js','.jsx']
