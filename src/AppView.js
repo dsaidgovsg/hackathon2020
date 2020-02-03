@@ -7,20 +7,19 @@ import Container from 'react-bootstrap/Container';
 import WelcomeView from './WelcomeView';
 import Menubar from './Menubar';
 import Prompt from './Prompt';
+import Demo from './demo-ncov/Demo';
 
 export default class AppView extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {view:'welcome', prompt: { show: false }, running:false};
+		this.state = {view:'welcome', prompt: {show: false}, running:false};
 		this.openPrompt = this.openPrompt.bind(this);
 		this.closePrompt = this.closePrompt.bind(this);
 		this.changeView = this.changeView.bind(this);
 	}
 
 	changeView(view) {
-	    if (view === 'welcome') {
-	    }
-		this.setState({ view: view })
+		this.setState({view: view})
 	}
 
 	openPrompt(message, options) {
@@ -42,7 +41,7 @@ export default class AppView extends React.Component {
 
 	render() {
 		return (
-			<Container fluid='true' test='true' className="d-flex flex-column" style={{ height: '100%', padding: '0px' }}>
+			<Container fluid='true' test='true' className="d-flex flex-column" style={{height: '100%', padding: '0px'}}>
 				<header className="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar py-0">
 				    <Menubar changeView={this.changeView} view={this.state.view}></Menubar>
 					<ul className="navbar-nav flex-row ml-md-auto d-none d-md-flex">
@@ -58,7 +57,8 @@ export default class AppView extends React.Component {
                     <Col className={"main-content bd-content h-100 px-0 col-12"} role="main">
 					{((view) => {
 						switch (view) {
-							case 'welcome': return <WelcomeView setProjects={this.setProjects} projects={this.state.projects} changeView={this.changeView}></WelcomeView>;
+							case 'welcome': return <WelcomeView changeView={this.changeView}></WelcomeView>;
+							case 'demo': return <Demo></Demo>;
 							default: return null;
 						}
 					})(this.state.view)}
