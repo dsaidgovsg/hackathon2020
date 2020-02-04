@@ -1,7 +1,7 @@
 # Hackathon 2020
 Webdev Demo Project for Hackathon 2020
 
-![](doc\screenshot.png)
+![](doc/screenshot.png)
 
 To install
 
